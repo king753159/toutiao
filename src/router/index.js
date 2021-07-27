@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '@/views/login'
-import Home from '@/views/home'
-import Layout from '@/views/layout'
-import Article from '@/views/article'
-import Image from '@/views/image'
-import Publish from '@/views/publish'
-import Comment from '@/views/comment'
-import Fans from '@/views/fans'
-import Settings from '@/views/settings'
+const Login = () => import('@/views/login')
+const Home = () => import('@/views/home')
+const Layout = () => import('@/views/layout')
+const Article = () => import('@/views/article')
+const Image = () => import('@/views/image')
+const Publish = () => import('@/views/publish')
+const Comment = () => import('@/views/comment')
+const Fans = () => import('@/views/fans')
+const Settings = () => import('@/views/settings')
 
 Vue.use(VueRouter)
 
@@ -65,9 +65,10 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-const user = JSON.parse(window.sessionStorage.getItem('user'))
+
 // 路由导航守卫 3种情况：前往的页面 1登录页：直接next() 2不是登录页 ： 2(1)含有token直接next() 2(2)不含token 跳转到登录页
 router.beforeEach((to, from, next) => {
+  const user = JSON.parse(window.sessionStorage.getItem('user'))
   if (to.path !== '/login') {
     if (user) {
       next()
