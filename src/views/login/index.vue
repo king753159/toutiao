@@ -2,25 +2,26 @@
   <div class="login-container">
     <div class="login-head"></div>
     <el-form class="login-form" ref="login-form" :rules="formRules" :model="user" >
-  <el-form-item prop="mobile">
-    <el-input
-    v-model="user.mobile"
-    placeholder="请输入手机号"
-    ></el-input>
-  </el-form-item>
-  <el-form-item prop="code">
-    <el-input
-    v-model="user.code"
-    placeholder="请输入验证码"
-    ></el-input>
-  </el-form-item>
-  <el-form-item prop="agree">
-    <el-checkbox v-model="user.agree">我已阅读并同意用户协议和隐私条款</el-checkbox>
-  </el-form-item>
-  <el-form-item>
-    <el-button class="login-btn" :loading="loginLoading" type="primary" @click="onLogin">登录</el-button>
-  </el-form-item>
-</el-form>
+      <el-form-item prop="mobile">
+        <el-input
+        v-model="user.mobile"
+        placeholder="请输入手机号"
+        ></el-input>
+      </el-form-item>
+      <el-form-item prop="code">
+        <el-input
+        v-model="user.code"
+        placeholder="请输入验证码"
+        ></el-input>
+      </el-form-item>
+      <el-form-item prop="agree">
+        <el-checkbox v-model="user.agree">我已阅读并同意用户协议和隐私条款</el-checkbox>
+      </el-form-item>
+      <el-form-item>
+        <el-button class="login-btn" :loading="loginLoading" type="primary" @click="onLogin">登录</el-button>
+      </el-form-item>
+    </el-form>
+    <a class="records" href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022000697号-1</a>
   </div>
 </template>
 
@@ -120,6 +121,14 @@ export default {
     .login-btn{
       width:100%;
     }
+ }
+ .records {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-80px);
+    font-size: 14px;
+    color: black;
  }
 }
 
